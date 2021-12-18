@@ -5,7 +5,7 @@ use model::*;
 
 use tock_registers::interfaces::{ReadWriteable, Readable, Writeable};
 use tock_registers::register_bitfields;
-use tock_registers::registers::{ReadOnly, ReadWrite};
+use tock_registers::registers::ReadWrite;
 
 const RETRY_COUNT: u32 = 100_000;
 
