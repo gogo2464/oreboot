@@ -16,7 +16,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: 'Install Dependencies'
       continue-on-error: true
-      run: sudo apt-get update && git cherry-pick 600bc918b283ac2e1277cbb9574183b6ef59895f && make ciprepare
+      run: |
+        sudo apt-get update && 
+        sed -r 's/channel = "nightly-.{4}-..-.."/channel = "stable-2021-12-02"/g' rust-toolchain.toml && 
+        make ciprepare
     - name: 'clippy linter'
       continue-on-error: true
       run: make --keep-going clippy
@@ -30,7 +33,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: 'Install Dependencies'
       continue-on-error: true
-      run: sudo apt-get update && git cherry-pick 600bc918b283ac2e1277cbb9574183b6ef59895f && make ciprepare
+      run: |
+        sudo apt-get update && 
+        sed -r 's/channel = "nightly-.{4}-..-.."/channel = "stable-2021-12-02"/g' rust-toolchain.toml && 
+        make ciprepare
     - name: 'Run rust tests'
       continue-on-error: true
       run: make --keep-going test
@@ -41,7 +47,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: 'Install Dependencies'
       continue-on-error: true
-      run: sudo apt-get update && git cherry-pick 600bc918b283ac2e1277cbb9574183b6ef59895f && make ciprepare
+      run: |
+        sudo apt-get update && 
+        sed -r 's/channel = "nightly-.{4}-..-.."/channel = "stable-2021-12-02"/g' rust-toolchain.toml && 
+        make ciprepare
     - name: 'Build all mainboards'
       continue-on-error: true
       run: make --keep-going mainboards
