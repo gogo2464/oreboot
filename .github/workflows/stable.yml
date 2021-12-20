@@ -53,7 +53,7 @@ jobs:
         make ciprepare
     - name: 'Build all mainboards'
       continue-on-error: true
-      run: make --keep-going mainboards
+      run: make --keep-going mainboard
     - name: 'Generate report of binary sizes'
       continue-on-error: true
       run: ./scripts/generate-size-report.sh
